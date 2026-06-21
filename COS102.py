@@ -34,3 +34,34 @@ def initialize_totals():
         count += 1
 
     return bio_tot, cos_tot, mth_tot, phy_tot, count
+def calculate_averages(
+        bio_tot,
+        cos_tot,
+        mth_tot,
+        phy_tot,
+        count):
+
+    b_avg = bio_tot / count
+    c_avg = cos_tot / count
+    m_avg = mth_tot / count
+    p_avg = phy_tot / count
+
+    return b_avg, c_avg, m_avg, p_avgdef write_report(count,
+                 b_avg,
+                 c_avg,
+                 m_avg,
+                 p_avg):
+
+    with open("report.txt", "w") as out:
+        out.write("============ STUDENT PERFORMANCE REPORT ============\n")
+        out.write(f"Total Students Processed: {count}\n\n")
+        out.write(f"Average BIO102 Score: {b_avg:.2f}\n")
+        out.write(f"Average COS102 Score: {c_avg:.2f}\n")
+        out.write(f"Average MTH102 Score: {m_avg:.2f}\n")
+        out.write(f"Average PHY102 Score: {p_avg:.2f}\n")
+        out.write("====================================================\n")def display_report():
+    print("Report successfully generated as 'report.txt'!")
+
+    print("\n--- Displaying Generated Report ---")
+
+    print(open("report.txt").read())
